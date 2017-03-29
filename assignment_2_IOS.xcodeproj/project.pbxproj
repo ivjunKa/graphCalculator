@@ -15,7 +15,11 @@
 		F44736871A9F3BC30067CE68 /* assignment_2_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736861A9F3BC30067CE68 /* assignment_2_IOSTests.swift */; };
 		F44736911A9F3D3C0067CE68 /* CalcBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736901A9F3D3C0067CE68 /* CalcBrain.swift */; };
 		F4F3F5401E890754007947B3 /* GraphBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F3F53F1E890754007947B3 /* GraphBoard.storyboard */; };
-		F4F3F5421E890776007947B3 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5411E890776007947B3 /* GraphViewController.swift */; };
+		F4F3F5421E890776007947B3 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5411E890776007947B3 /* GraphView.swift */; };
+		F4F3F5441E8A7156007947B3 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */; };
+		F4F3F5451E8A7156007947B3 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */; };
+		F4F3F5471E8A7627007947B3 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5461E8A7627007947B3 /* GraphViewController.swift */; };
+		F4F3F5481E8A7627007947B3 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5461E8A7627007947B3 /* GraphViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +45,9 @@
 		F44736861A9F3BC30067CE68 /* assignment_2_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment_2_IOSTests.swift; sourceTree = "<group>"; };
 		F44736901A9F3D3C0067CE68 /* CalcBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcBrain.swift; sourceTree = "<group>"; };
 		F4F3F53F1E890754007947B3 /* GraphBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GraphBoard.storyboard; sourceTree = "<group>"; };
-		F4F3F5411E890776007947B3 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		F4F3F5411E890776007947B3 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
+		F4F3F5461E8A7627007947B3 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +95,9 @@
 				F44736771A9F3BC30067CE68 /* Images.xcassets */,
 				F44736791A9F3BC30067CE68 /* LaunchScreen.xib */,
 				F447366E1A9F3BC30067CE68 /* Supporting Files */,
-				F4F3F5411E890776007947B3 /* GraphViewController.swift */,
+				F4F3F5411E890776007947B3 /* GraphView.swift */,
+				F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */,
+				F4F3F5461E8A7627007947B3 /* GraphViewController.swift */,
 			);
 			path = assignment_2_IOS;
 			sourceTree = "<group>";
@@ -225,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44736731A9F3BC30067CE68 /* CalculatorViewController.swift in Sources */,
-				F4F3F5421E890776007947B3 /* GraphViewController.swift in Sources */,
+				F4F3F5421E890776007947B3 /* GraphView.swift in Sources */,
+				F4F3F5441E8A7156007947B3 /* AxesDrawer.swift in Sources */,
+				F4F3F5471E8A7627007947B3 /* GraphViewController.swift in Sources */,
 				F44736711A9F3BC30067CE68 /* AppDelegate.swift in Sources */,
 				F44736911A9F3D3C0067CE68 /* CalcBrain.swift in Sources */,
 			);
@@ -235,7 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4F3F5481E8A7627007947B3 /* GraphViewController.swift in Sources */,
 				F44736871A9F3BC30067CE68 /* assignment_2_IOSTests.swift in Sources */,
+				F4F3F5451E8A7156007947B3 /* AxesDrawer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

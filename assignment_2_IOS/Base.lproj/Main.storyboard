@@ -417,17 +417,9 @@
                         <viewControllerLayoutGuide type="top" id="n3S-ay-PqX"/>
                         <viewControllerLayoutGuide type="bottom" id="v7f-fo-EhP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r61-gB-9Nj">
+                    <view key="view" contentMode="scaleToFill" id="r61-gB-9Nj" customClass="GraphView" customModule="assignment_2_IOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I`m the label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6o-ou-aoe">
-                                <rect key="frame" x="223" y="289" width="98" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
