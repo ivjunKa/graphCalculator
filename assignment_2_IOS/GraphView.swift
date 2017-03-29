@@ -23,7 +23,7 @@ class GraphView: UIView {
 //    let rect = CGRect(x: 0, y: 0, width: 100, height: 100);
 //    let size = CGSize(width: 100, height: 100);
 //    let point = CGPoint(x: 0, y: 0);
-    var pointsPerUnit : CGFloat = 100;
+    var pointsPerUnit : CGFloat = 50;
     var delegate : GraphViewDelegate?
     var newAxeOrigin: CGPoint?
     private var axeOrigin : CGPoint {
@@ -38,13 +38,15 @@ class GraphView: UIView {
     
     override func drawRect(rect: CGRect) {
         drawer.drawAxesInRect(bounds, origin: axeOrigin, pointsPerUnit: pointsPerUnit)
+        //here we need to add some kind of looping with points and the add separate method to draw lines between those points
         drawPoint()
     }
+    //draws an point at specified location
     func drawPoint(){
         let desiredX: CGFloat = 2
-        let desiredY: CGFloat = 2
-        let xCoord: CGFloat = (axeOrigin.x + pointsPerUnit) * desiredX
-        let yCoord: CGFloat = (axeOrigin.y + pointsPerUnit) * desiredY
+        let desiredY: CGFloat = -2.5
+        let xCoord: CGFloat = axeOrigin.x + (pointsPerUnit * desiredX)
+        let yCoord: CGFloat = axeOrigin.y - (pointsPerUnit * desiredY)
         let radius: CGFloat = 8
         
         let dotPath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, radius, radius))
