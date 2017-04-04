@@ -28,7 +28,6 @@ class CalcBrain:CustomStringConvertible {
         }
     }
     var historyStack = History(historyOperation: "", result: "", textWidth: 0)
-    
     private enum Op: CustomStringConvertible{
         case Operand(Double)
         case UnaryOperation(String, Double -> Double)
@@ -176,6 +175,8 @@ class CalcBrain:CustomStringConvertible {
         return (nil, ops)
     }
     func evaluate() ->Double?{
+        print("this is our opStack at this moment:")
+        print(opStack)
         let (result, remainder) = evaluate(opStack)
         print("\(opStack) = \(result) with \(remainder) left over ")
         return result
@@ -194,5 +195,28 @@ class CalcBrain:CustomStringConvertible {
         opStack.removeAll()
         variableValues.removeAll()
 //        knownOps["Π"] = Op.CustomVariable("Π",  M_PI )
+    }
+    typealias PropertyList = AnyObject
+    var program: PropertyList {
+        get {
+            
+            return opStack.map { $0.description}
+        }
+        
+        set {
+            if let opSymbols = newValue as? Array<String> {
+                var newOpStack = [Op]()
+                for opSymbol in opSymbols {
+                    if let op = knownOps [opSymbol] {
+                        newOpStack.append(op)
+                    } else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue {
+                        newOpStack.append(.Operand(operand))
+                    } else {
+                        newOpStack.append(.CustomVariable(opSymbol))
+                    }
+                }
+                opStack = newOpStack
+            }
+        }
     }
 }

@@ -13,7 +13,9 @@ class CalculatorViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var displayHistory: UILabel!
     @IBOutlet weak var historyButtonView: UIView!
     var userTyping: Bool = false
-    
+    private struct Calculator {
+        static let SegueIdentifier = "Graph Seque"
+    }
     var buttonAreaWidth: CGFloat = 0
     var brain = CalcBrain()
     var historyStack: String = ""
@@ -165,7 +167,7 @@ class CalculatorViewController: UIViewController, UIScrollViewDelegate {
         buttonHistory.setTitle(brain.historyStack.historyOperation + brain.historyStack.result, forState: UIControlState.Normal)
         buttonHistory.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         historyButtonView.addSubview(buttonHistory)
-        
+       
     }
 
     func buttonAction(sender: UIButton){
@@ -173,6 +175,29 @@ class CalculatorViewController: UIViewController, UIScrollViewDelegate {
         print(sender.currentTitle![startIndex!])
         let valueToDisplay = sender.currentTitle!.substringFromIndex(startIndex!)
         display.text! = valueToDisplay
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var destination = segue.destinationViewController as? UIViewController
+        
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let gvc = destination as? GraphViewController {
+            if let identifier = segue.identifier {
+                
+                switch identifier {
+                case Calculator.SegueIdentifier:
+                    gvc.operandStack = brain.program as? [String] ?? []
+                    gvc.program = brain.program
+                    //print("sequeeeeed!!!!!!! DONE")
+                    //brain.evaluate()
+                default: break
+                }
+            }
+        }
     }
     
 }

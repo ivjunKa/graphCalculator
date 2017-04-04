@@ -7,22 +7,20 @@
 //
 
 import UIKit
+
 @objc protocol GraphViewDelegate {
     optional func scale(scale: CGFloat, sender: GraphView)
     optional func origin(origin: CGPoint, sender: GraphView)
 }
+protocol DelegateFromController: class {
+    func getFunctionOutputForTheGraph(inputValue: CGFloat, sender: GraphView) -> CGFloat?
+}
 class GraphView: UIView {
     @IBInspectable var axeColor: UIColor = UIColor.blueColor();
     private let drawer = AxesDrawer();
+    var myController = GraphViewController()
     
     
-//    private var graphFrame : CGRect {
-//        return convertRect(frame, fromView: superview)
-//    }
-    
-//    let rect = CGRect(x: 0, y: 0, width: 100, height: 100);
-//    let size = CGSize(width: 100, height: 100);
-//    let point = CGPoint(x: 0, y: 0);
     class DesiredPoint {
         var xPoint: CGFloat
         var yPoint: CGFloat
@@ -33,7 +31,9 @@ class GraphView: UIView {
     }
     
     var pointsPerUnit : CGFloat = 50;
-    var delegate : GraphViewDelegate?
+    weak var delegate : GraphViewDelegate?
+    weak var dataSource : DelegateFromController?
+   
     var newAxeOrigin: CGPoint?
     private var axeOrigin : CGPoint {
         get {
@@ -47,25 +47,33 @@ class GraphView: UIView {
     
     override func drawRect(rect: CGRect) {
         drawer.drawAxesInRect(bounds, origin: axeOrigin, pointsPerUnit: pointsPerUnit)
+        
         //here we need to add some kind of looping with points and the add separate method to draw lines between those points.
-        var desiredPoint1 = DesiredPoint(xPoint: 1, yPoint: 2)
-        var desiredPoint2 = DesiredPoint(xPoint: 2, yPoint: -3.5)
-        var desiredPoint3 = DesiredPoint(xPoint: 3, yPoint: -1)
-        
-        var arrWithPoints = [DesiredPoint]()
-        arrWithPoints.append(desiredPoint1)
-        arrWithPoints.append(desiredPoint2)
-        arrWithPoints.append(desiredPoint3)
-        for var i in 0...arrWithPoints.count - 1 {
-           drawPoint(arrWithPoints[i])
-            if(i != arrWithPoints.count - 1){
-                drawLinesUpdated(arrWithPoints[i],endPoint: arrWithPoints[i+1])
+//        var desiredPoint1 = DesiredPoint(xPoint: 1, yPoint: 2)
+//        var desiredPoint2 = DesiredPoint(xPoint: 2, yPoint: -3.5)
+//        var desiredPoint3 = DesiredPoint(xPoint: 3, yPoint: -1)
+//        
+//        var arrWithPoints = [DesiredPoint]()
+//        arrWithPoints.append(desiredPoint1)
+//        arrWithPoints.append(desiredPoint2)
+//        arrWithPoints.append(desiredPoint3)
+//        for var i in 0...arrWithPoints.count - 1 {
+//           drawPoint(arrWithPoints[i])
+//            if(i != arrWithPoints.count - 1){
+//                drawLinesUpdated(arrWithPoints[i],endPoint: arrWithPoints[i+1])
+//            }
+//        }
+        var minXValue = bounds.minX
+        for var i in 0...5 {
+            let scaleAndOriginAccountedValue = (minXValue - axeOrigin.x) / pointsPerUnit
+            print("trying hard")
+            if let outputValue = dataSource?.getFunctionOutputForTheGraph(scaleAndOriginAccountedValue, sender: self){
+                print("trying to draw a point")
+                var pointToDraw = DesiredPoint(xPoint: minXValue, yPoint: outputValue)
+                drawPoint(pointToDraw)
             }
-            
+            minXValue += 1/pointsPerUnit
         }
-        
-        
-        
     }
     //draws an point at specified location
     func drawPoint(point: DesiredPoint){
@@ -113,5 +121,9 @@ class GraphView: UIView {
         path.moveToPoint(CGPoint(x: axeOrigin.x+(pointsPerUnit*startPoint.xPoint), y: axeOrigin.y - (pointsPerUnit * startPoint.yPoint)))
         path.addLineToPoint(CGPoint(x: axeOrigin.x+(pointsPerUnit*endPoint.xPoint), y: axeOrigin.y - (pointsPerUnit * endPoint.yPoint)))
         path.stroke()
+    }
+    //here we accept the function that needs to be drawn(if we received some function from calculator)
+    func drawFunction(){
+        
     }
 }

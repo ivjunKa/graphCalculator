@@ -14,12 +14,14 @@
 		F447367B1A9F3BC30067CE68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44736791A9F3BC30067CE68 /* LaunchScreen.xib */; };
 		F44736871A9F3BC30067CE68 /* assignment_2_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736861A9F3BC30067CE68 /* assignment_2_IOSTests.swift */; };
 		F44736911A9F3D3C0067CE68 /* CalcBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736901A9F3D3C0067CE68 /* CalcBrain.swift */; };
+		F4E605AB1E9397BF002DE653 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5411E890776007947B3 /* GraphView.swift */; };
 		F4F3F5401E890754007947B3 /* GraphBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F3F53F1E890754007947B3 /* GraphBoard.storyboard */; };
 		F4F3F5421E890776007947B3 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5411E890776007947B3 /* GraphView.swift */; };
 		F4F3F5441E8A7156007947B3 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */; };
 		F4F3F5451E8A7156007947B3 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */; };
-		F4F3F5471E8A7627007947B3 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5461E8A7627007947B3 /* GraphViewController.swift */; };
 		F4F3F5481E8A7627007947B3 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5461E8A7627007947B3 /* GraphViewController.swift */; };
+		F4F3F5491E9248A2007947B3 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5461E8A7627007947B3 /* GraphViewController.swift */; };
+		F4F3F54A1E9248B6007947B3 /* CalcBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736901A9F3D3C0067CE68 /* CalcBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,12 +94,12 @@
 				F44736701A9F3BC30067CE68 /* AppDelegate.swift */,
 				F44736901A9F3D3C0067CE68 /* CalcBrain.swift */,
 				F44736721A9F3BC30067CE68 /* CalculatorViewController.swift */,
+				F4F3F5461E8A7627007947B3 /* GraphViewController.swift */,
+				F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */,
+				F4F3F5411E890776007947B3 /* GraphView.swift */,
 				F44736771A9F3BC30067CE68 /* Images.xcassets */,
 				F44736791A9F3BC30067CE68 /* LaunchScreen.xib */,
 				F447366E1A9F3BC30067CE68 /* Supporting Files */,
-				F4F3F5411E890776007947B3 /* GraphView.swift */,
-				F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */,
-				F4F3F5461E8A7627007947B3 /* GraphViewController.swift */,
 			);
 			path = assignment_2_IOS;
 			sourceTree = "<group>";
@@ -175,7 +177,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = nl.han.ica.mad;
 				TargetAttributes = {
 					F447366A1A9F3BC30067CE68 = {
@@ -235,7 +237,7 @@
 				F44736731A9F3BC30067CE68 /* CalculatorViewController.swift in Sources */,
 				F4F3F5421E890776007947B3 /* GraphView.swift in Sources */,
 				F4F3F5441E8A7156007947B3 /* AxesDrawer.swift in Sources */,
-				F4F3F5471E8A7627007947B3 /* GraphViewController.swift in Sources */,
+				F4F3F5491E9248A2007947B3 /* GraphViewController.swift in Sources */,
 				F44736711A9F3BC30067CE68 /* AppDelegate.swift in Sources */,
 				F44736911A9F3D3C0067CE68 /* CalcBrain.swift in Sources */,
 			);
@@ -245,7 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E605AB1E9397BF002DE653 /* GraphView.swift in Sources */,
 				F4F3F5481E8A7627007947B3 /* GraphViewController.swift in Sources */,
+				F4F3F54A1E9248B6007947B3 /* CalcBrain.swift in Sources */,
 				F44736871A9F3BC30067CE68 /* assignment_2_IOSTests.swift in Sources */,
 				F4F3F5451E8A7156007947B3 /* AxesDrawer.swift in Sources */,
 			);
@@ -301,6 +305,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -315,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -352,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -366,6 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = assignment_2_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-83374.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -376,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = assignment_2_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-83374.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -394,6 +401,7 @@
 				);
 				INFOPLIST_FILE = assignment_2_IOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-83374.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/assignment_2_IOS.app/assignment_2_IOS";
 			};
@@ -409,6 +417,7 @@
 				);
 				INFOPLIST_FILE = assignment_2_IOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-83374.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/assignment_2_IOS.app/assignment_2_IOS";
 			};

@@ -269,7 +269,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cbl-Tm-st9" kind="show" id="ooV-Kp-tbd"/>
+                                    <segue destination="cbl-Tm-st9" kind="show" identifier="Graph Seque" id="ooV-Kp-tbd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -422,10 +422,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="graphView" destination="r61-gB-9Nj" id="CBz-0E-Nes"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wy2-mc-TEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="273"/>
+            <point key="canvasLocation" x="1579" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5G2-hW-q8p">
