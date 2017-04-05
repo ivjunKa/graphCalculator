@@ -30,7 +30,7 @@ class GraphView: UIView {
         }
     }
     
-    var pointsPerUnit : CGFloat = 50;
+    var pointsPerUnit : CGFloat = 100;
     weak var delegate : GraphViewDelegate?
     weak var dataSource : DelegateFromController?
    
@@ -64,7 +64,10 @@ class GraphView: UIView {
 //            }
 //        }
         var minXValue = bounds.minX
-        
+        print("this is my bounds minX and maxX: ")
+        print(bounds.minX)
+        print(bounds.maxX)
+        var counter: Int = 0
         let path = UIBezierPath()
         while minXValue <= bounds.maxX {
             let scaleAndOriginAccountedValue = (minXValue - axeOrigin.x) / pointsPerUnit
@@ -74,10 +77,17 @@ class GraphView: UIView {
                 var pointToDraw = DesiredPoint(xPoint: axeOrigin.x + (scaleAndOriginAccountedValue*pointsPerUnit), yPoint: axeOrigin.y - (outputValue*pointsPerUnit))
                 path.addLineToPoint(CGPoint(x: pointToDraw.xPoint, y : pointToDraw.yPoint))
                 path.moveToPoint(CGPoint(x: pointToDraw.xPoint, y : pointToDraw.yPoint))
+//                var xPoint: CGFloat = axeOrigin.x + (scaleAndOriginAccountedValue*pointsPerUnit)
+//                var yPoint: CGFloat = axeOrigin.y - (outputValue*pointsPerUnit)
+//                path.addLineToPoint(CGPoint(x: xPoint, y : yPoint))
+//                path.moveToPoint(CGPoint(x: xPoint, y : yPoint))
                 
                 //drawPoint(pointToDraw).
             }
-            minXValue += 1/pointsPerUnit
+            counter += 1
+            minXValue += 1
+            print("this is our counter value: ")
+            print(counter)
         }
         UIColor.redColor().set()
         path.stroke()
