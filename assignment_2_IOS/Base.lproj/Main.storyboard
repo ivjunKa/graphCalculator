@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yX8-fJ-bDz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wJf-nJ-3oO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Split View Controller-->
+        <scene sceneID="fva-OX-SDB">
+            <objects>
+                <splitViewController id="wJf-nJ-3oO" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="LgB-M0-CNF" kind="relationship" relationship="masterViewController" id="yHX-kO-jYP"/>
+                        <segue destination="cbl-Tm-st9" kind="relationship" relationship="detailViewController" id="tlM-ZD-EQh"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oup-Ny-suH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="-650"/>
+        </scene>
         <!--Calculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -407,7 +420,7 @@
                 <swipeGestureRecognizer direction="right" id="wf6-ll-nbc"/>
                 <swipeGestureRecognizer direction="right" id="jHa-Yt-ZaM"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="-737"/>
+            <point key="canvasLocation" x="2391" y="-737"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="KC9-BP-GW9">
@@ -431,22 +444,25 @@
             <point key="canvasLocation" x="1579" y="127"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="5G2-hW-q8p">
+        <scene sceneID="h55-n7-rQF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yX8-fJ-bDz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LgB-M0-CNF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="imr-cQ-y8u">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0YB-w3-HVu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TQf-HF-5nB"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Bop-SL-PDD"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TTi-FO-dMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHU-va-AXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="-737"/>
+            <point key="canvasLocation" x="1579" y="-737"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tlM-ZD-EQh"/>
+    </inferredMetricsTieBreakers>
 </document>
