@@ -64,16 +64,23 @@ class GraphView: UIView {
 //            }
 //        }
         var minXValue = bounds.minX
-        for var i in 0...5 {
+        
+        let path = UIBezierPath()
+        while minXValue <= bounds.maxX {
             let scaleAndOriginAccountedValue = (minXValue - axeOrigin.x) / pointsPerUnit
             print("trying hard")
             if let outputValue = dataSource?.getFunctionOutputForTheGraph(scaleAndOriginAccountedValue, sender: self){
                 print("trying to draw a point")
-                var pointToDraw = DesiredPoint(xPoint: minXValue, yPoint: outputValue)
-                drawPoint(pointToDraw)
+                var pointToDraw = DesiredPoint(xPoint: axeOrigin.x + (scaleAndOriginAccountedValue*pointsPerUnit), yPoint: axeOrigin.y - (outputValue*pointsPerUnit))
+                path.addLineToPoint(CGPoint(x: pointToDraw.xPoint, y : pointToDraw.yPoint))
+                path.moveToPoint(CGPoint(x: pointToDraw.xPoint, y : pointToDraw.yPoint))
+                
+                //drawPoint(pointToDraw).
             }
             minXValue += 1/pointsPerUnit
         }
+        UIColor.redColor().set()
+        path.stroke()
     }
     //draws an point at specified location
     func drawPoint(point: DesiredPoint){
@@ -105,7 +112,7 @@ class GraphView: UIView {
         //aPath.closePath()
         
         //If you want to stroke it with a red color
-        UIColor.redColor().set()
+        
         aPath.stroke()
         print("DOne:")
     }
