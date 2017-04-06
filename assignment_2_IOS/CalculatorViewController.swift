@@ -16,8 +16,10 @@ class CalculatorViewController: UIViewController, UIScrollViewDelegate {
     private struct Calculator {
         static let SegueIdentifier = "Graph Seque"
     }
+    var operationToPush: String = ""
     var buttonAreaWidth: CGFloat = 0
     var brain = CalcBrain()
+    
     var historyStack: String = ""
     @IBAction func buttonHandler(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -186,7 +188,10 @@ class CalculatorViewController: UIViewController, UIScrollViewDelegate {
             print(nav.viewControllers[0].view)
             vc.operandStack = brain.program as? [String] ?? []
             vc.program = brain.program
-        }
+            vc.titleOfTheGraph = brain.historyStack.historyOperation
+            print("history stack here")
+            print(brain.historyStack.historyOperation)
+        }}
 //        var destination = segue.destinationViewController as? UIViewController
 //        
 //        if let navCon = destination as? UINavigationController {

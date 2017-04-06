@@ -422,10 +422,10 @@
             </objects>
             <point key="canvasLocation" x="1238" y="-737"/>
         </scene>
-        <!--Graph View Controller-->
+        <!--Graph View-->
         <scene sceneID="KC9-BP-GW9">
             <objects>
-                <viewController id="cbl-Tm-st9" customClass="GraphViewController" customModule="assignment_2_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Graph View" id="cbl-Tm-st9" customClass="GraphViewController" customModule="assignment_2_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n3S-ay-PqX"/>
                         <viewControllerLayoutGuide type="bottom" id="v7f-fo-EhP"/>
@@ -435,7 +435,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rUo-e8-zMY"/>
+                    <navigationItem key="navigationItem" title="Graph View" id="rUo-e8-zMY"/>
                     <connections>
                         <outlet property="graphView" destination="r61-gB-9Nj" id="CBz-0E-Nes"/>
                     </connections>

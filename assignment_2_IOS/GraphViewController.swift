@@ -26,6 +26,18 @@ class GraphViewController: UIViewController, DelegateFromController, GraphViewDe
             //print(brain.program)
         }
     }
+    var titleOfTheGraph : String {
+        get {
+            return brain.historyStack.historyOperation
+        }
+        set {
+            brain.historyStack.historyOperation = newValue
+            print("here is my stack")
+            print(brain.historyStack.historyOperation)
+            self.title = brain.historyStack.historyOperation
+        }
+        
+    }
     func getFunctionOutputForTheGraph(inputValue:CGFloat, sender: GraphView)->CGFloat?{
         //var outputValue:CGFloat
         print("trying to evaluate now")
@@ -41,7 +53,7 @@ class GraphViewController: UIViewController, DelegateFromController, GraphViewDe
     }
     var operandStack: [String] = [] {
         didSet{
-            print("operand stack is set")
+            print("operand stack was set")
             //updateUI()
         }
     }
@@ -50,7 +62,7 @@ class GraphViewController: UIViewController, DelegateFromController, GraphViewDe
         didSet{
             //graphView.delegate = self
             graphView.dataSource = self
-            print("graph view was set succesfully!!!!!!######")
+            print("graph view was set succesfully!!!!!!")
             graphView.addGestureRecognizer(UIPinchGestureRecognizer(target: graphView, action: Gestures.PinchAction))
             
             let doubleTapGestureRecognizer = UITapGestureRecognizer(target: graphView, action: Gestures.DoubleTapAction)
@@ -58,6 +70,8 @@ class GraphViewController: UIViewController, DelegateFromController, GraphViewDe
             graphView.addGestureRecognizer(doubleTapGestureRecognizer)
             
             graphView.addGestureRecognizer(UIPanGestureRecognizer(target: graphView, action: Gestures.PanAction))
+            print("before init")
+            print(brain.historyStack.historyOperation)
         }
         
     }
