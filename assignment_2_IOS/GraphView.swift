@@ -19,7 +19,7 @@ class GraphView: UIView {
     @IBInspectable var axeColor: UIColor = UIColor.blueColor();
     private let drawer = AxesDrawer();
     var myController = GraphViewController()
-    
+    private var snapshot: UIView?
     
     class DesiredPoint {
         var xPoint: CGFloat
@@ -30,7 +30,11 @@ class GraphView: UIView {
         }
     }
     
-    var pointsPerUnit : CGFloat = 100;
+    var pointsPerUnit : CGFloat = 100 {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    };
     weak var delegate : GraphViewDelegate?
     weak var dataSource : DelegateFromController?
    
@@ -141,6 +145,45 @@ class GraphView: UIView {
     }
     //here we accept the function that needs to be drawn(if we received some function from calculator)
     func drawFunction(){
+        
+    }
+    func zoomInAndOut(gesture: UIPinchGestureRecognizer){
+        print("trying to zooming")
+        if gesture.state == .Changed {
+            pointsPerUnit *= gesture.scale
+            gesture.scale = 1.0
+        }
+    }
+    func changeGraphOrigin(gesture: UITapGestureRecognizer){
+        print("trying to changeOrigin")
+        
+        if gesture.state == .Ended {
+            print(gesture.locationInView(self))
+            print(axeOrigin)
+            axeOrigin = gesture.locationInView(self)
+        }
+    }
+    func moveGraph(gesture: UIPanGestureRecognizer){
+        print("trying to moveTheGraph")
+        switch gesture.state {
+        case .Began:
+            snapshot = self.snapshotViewAfterScreenUpdates(false)
+            snapshot?.alpha = 0.8
+            self.addSubview(snapshot!)
+        case .Changed:
+            let translation = gesture.translationInView(self)
+            snapshot!.center.x += translation.x
+            snapshot!.center.y += translation.y
+            gesture.setTranslation(CGPointZero, inView: self)
+        case .Ended:
+            let newOrigin = CGPoint(x: axeOrigin.x + snapshot!.frame.origin.x, y: axeOrigin.y + snapshot!.frame.origin.y)
+            axeOrigin = newOrigin
+            snapshot!.removeFromSuperview()
+            snapshot = nil
+            
+        default: break
+        }
+
         
     }
 }

@@ -15,6 +15,8 @@
 		F44736871A9F3BC30067CE68 /* assignment_2_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736861A9F3BC30067CE68 /* assignment_2_IOSTests.swift */; };
 		F44736911A9F3D3C0067CE68 /* CalcBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736901A9F3D3C0067CE68 /* CalcBrain.swift */; };
 		F4E605AB1E9397BF002DE653 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5411E890776007947B3 /* GraphView.swift */; };
+		F4E782B11E96545400166C6C /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736721A9F3BC30067CE68 /* CalculatorViewController.swift */; };
+		F4E782B21E96545900166C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44736701A9F3BC30067CE68 /* AppDelegate.swift */; };
 		F4F3F5401E890754007947B3 /* GraphBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F3F53F1E890754007947B3 /* GraphBoard.storyboard */; };
 		F4F3F5421E890776007947B3 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5411E890776007947B3 /* GraphView.swift */; };
 		F4F3F5441E8A7156007947B3 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F5431E8A7156007947B3 /* AxesDrawer.swift */; };
@@ -251,6 +253,8 @@
 				F4F3F5481E8A7627007947B3 /* GraphViewController.swift in Sources */,
 				F4F3F54A1E9248B6007947B3 /* CalcBrain.swift in Sources */,
 				F44736871A9F3BC30067CE68 /* assignment_2_IOSTests.swift in Sources */,
+				F4E782B21E96545900166C6C /* AppDelegate.swift in Sources */,
+				F4E782B11E96545400166C6C /* CalculatorViewController.swift in Sources */,
 				F4F3F5451E8A7156007947B3 /* AxesDrawer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

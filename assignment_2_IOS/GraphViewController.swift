@@ -9,6 +9,11 @@
 import UIKit
 
 class GraphViewController: UIViewController, DelegateFromController, GraphViewDelegate {
+    private struct Gestures {
+        static let PinchAction: Selector = "zoomInAndOut:"
+        static let DoubleTapAction: Selector = "changeGraphOrigin:"
+        static let PanAction: Selector = "moveGraph:"
+    }
     private let brain = CalcBrain()
     var program: AnyObject {
         get {
@@ -43,10 +48,18 @@ class GraphViewController: UIViewController, DelegateFromController, GraphViewDe
 
     @IBOutlet var graphView: GraphView!{
         didSet{
-            graphView.delegate = self
+            //graphView.delegate = self
             graphView.dataSource = self
             print("graph view was set succesfully!!!!!!######")
+            graphView.addGestureRecognizer(UIPinchGestureRecognizer(target: graphView, action: Gestures.PinchAction))
+            
+            let doubleTapGestureRecognizer = UITapGestureRecognizer(target: graphView, action: Gestures.DoubleTapAction)
+            doubleTapGestureRecognizer.numberOfTapsRequired = 2
+            graphView.addGestureRecognizer(doubleTapGestureRecognizer)
+            
+            graphView.addGestureRecognizer(UIPanGestureRecognizer(target: graphView, action: Gestures.PanAction))
         }
+        
     }
 //    @IBOutlet weak var graphView: GraphView! {
 //        didSet {

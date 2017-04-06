@@ -178,27 +178,34 @@ class CalculatorViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        var destination = segue.destinationViewController as? UIViewController
-        
-        if let navCon = destination as? UINavigationController {
-            destination = navCon.visibleViewController
+        if segue.identifier == "Graph Segue"{
+            let nav = segue.destinationViewController as! UINavigationController
+            //<assignment_2_IOS.GraphViewController: 0x7feaa1497df0>
+            let vc = nav.viewControllers[0] as! GraphViewController
+            print("lets segue!")
+            print(nav.viewControllers[0].view)
+            vc.operandStack = brain.program as? [String] ?? []
+            vc.program = brain.program
         }
-        
-        if let gvc = destination as? GraphViewController {
-            if let identifier = segue.identifier {
-                
-                switch identifier {
-                case Calculator.SegueIdentifier:
-                    gvc.operandStack = brain.program as? [String] ?? []
-                    gvc.program = brain.program
-                    //print("sequeeeeed!!!!!!! DONE")
-                    //brain.evaluate()
-                default: break
-                }
-            }
-        }
-    }
+//        var destination = segue.destinationViewController as? UIViewController
+//        
+//        if let navCon = destination as? UINavigationController {
+//            destination = navCon.visibleViewController
+//        }
+//        
+//        if let gvc = destination as? GraphViewController {
+//            if let identifier = segue.identifier {
+//                
+//                switch identifier {
+//                case Calculator.SegueIdentifier:
+//                    gvc.operandStack = brain.program as? [String] ?? []
+//                    gvc.program = brain.program
+//                    //print("sequeeeeed!!!!!!! DONE")
+//                    //brain.evaluate()
+//                default: break
+//                }
+//            }
+//        }
     
 }
 
